@@ -1,1 +1,0 @@
-E:\shevtsov\OneDrive\Даниил\gamedev\C#\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\ConnectFourXNAContent\obj\x86\Debug\ConnectFourXNAContent.contentprojResolveAssemblyReference.cache

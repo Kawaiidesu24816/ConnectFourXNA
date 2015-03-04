@@ -1,6 +1,0 @@
-E:\shevtsov\OneDrive\Даниил\gamedev\C#\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\bin\x86\Debug\ConnectFourXNA.exe
-E:\shevtsov\OneDrive\Даниил\gamedev\C#\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\bin\x86\Debug\ConnectFourXNA.pdb
-E:\shevtsov\OneDrive\Даниил\gamedev\C#\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\obj\x86\Debug\ConnectFourXNA.csprojResolveAssemblyReference.cache
-E:\shevtsov\OneDrive\Даниил\gamedev\C#\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-E:\shevtsov\OneDrive\Даниил\gamedev\C#\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\obj\x86\Debug\ConnectFourXNA.exe
-E:\shevtsov\OneDrive\Даниил\gamedev\C#\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\obj\x86\Debug\ConnectFourXNA.pdb
