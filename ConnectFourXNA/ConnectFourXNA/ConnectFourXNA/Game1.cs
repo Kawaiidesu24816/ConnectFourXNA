@@ -19,8 +19,16 @@ namespace ConnectFourXNA
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        const int WINDOW_WIDTH = 800;
-        const int WINDOW_HEIGHT = 600;
+        //constants for tile size and cells number
+        const int TILE_WIDTH = 128;
+        const int TILE_HEIGHT = 128;
+        const int COLUMN_NUMBER = 7;
+        const int ROW_NUMBER = 6;
+        const int WINDOW_WIDTH = TILE_WIDTH * COLUMN_NUMBER; // 128 * 7 = 896
+        const int WINDOW_HEIGHT = TILE_HEIGHT * ROW_NUMBER; // 128 * 6 = 768
+
+
+        Board board = new Board(COLUMN_NUMBER, ROW_NUMBER, TILE_WIDTH, TILE_HEIGHT);
 
         public Game1()
         {
@@ -41,6 +49,7 @@ namespace ConnectFourXNA
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            board.Initialise();
 
             base.Initialize();
         }
@@ -54,7 +63,10 @@ namespace ConnectFourXNA
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            // Load pictures for cells
+            board.LoadContent(Content);
+
+
         }
 
         /// <summary>
@@ -88,9 +100,14 @@ namespace ConnectFourXNA
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.DarkGray);
 
-            // TODO: Add your drawing code here
+            // Draw cells
+            spriteBatch.Begin();
+
+            board.Draw(spriteBatch);
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
