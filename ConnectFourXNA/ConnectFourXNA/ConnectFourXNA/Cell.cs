@@ -19,18 +19,14 @@ namespace ConnectFourXNA
     {
         #region Fields
 
-        public Rectangle drawRectangle;
-        public Texture2D tile;
-        int x;
-        int y;
+        private Rectangle _drawRectangle;
+        private Texture2D _tile;
 
         #endregion
 
         public Cell(int rectangleX, int rectangleY)
         {
-            x = rectangleX;
-            y = rectangleY;
-            
+            _drawRectangle = new Rectangle(rectangleX, rectangleY, 0, 0);
         }
 
         #region Methods
@@ -39,8 +35,9 @@ namespace ConnectFourXNA
         public void LoadContent(string fileName, ContentManager contentManager)
         {
             
-            tile = contentManager.Load<Texture2D>(fileName);
-            drawRectangle = new Rectangle(x, y, tile.Width, tile.Height);
+            _tile = contentManager.Load<Texture2D>(fileName);
+            _drawRectangle.Width = _tile.Width;
+            _drawRectangle.Height = _tile.Height;
         }
 
         public void Update()
@@ -51,7 +48,7 @@ namespace ConnectFourXNA
         // Draw method draws a cell.
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(tile, drawRectangle, Color.White);
+            spriteBatch.Draw(_tile, _drawRectangle, Color.White);
         }
 
         #endregion
