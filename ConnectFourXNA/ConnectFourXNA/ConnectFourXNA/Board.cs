@@ -19,21 +19,22 @@ namespace ConnectFourXNA
     {
         #region Fields 
 
-        int columnNumber;
-        int rowNumber;
-        int tileWidth;
-        int tileHeight;
+        private int _columnNumber;
+        private int _rowNumber;
+        private int _tileWidth;
+        private int _tileHeight;
         Cell[,] cells;
 
         #endregion
 
-        public Board(int COLUMN_NUMBER, int ROW_NUMBER, int TILE_WIDTH, int TILE_HEIGHT)
+        public Board(int columnNumber, int rowNumber, int tileWidth, int tileHeight)
         {
-            columnNumber = COLUMN_NUMBER;
-            rowNumber = ROW_NUMBER;
-            tileWidth = TILE_WIDTH;
-            tileHeight = TILE_HEIGHT;
-            cells = new Cell[columnNumber, rowNumber];
+            _columnNumber = columnNumber;
+            _rowNumber = rowNumber;
+            _tileWidth = tileWidth;
+            _tileHeight = tileHeight;
+
+            cells = new Cell[_columnNumber, _rowNumber];
 
         }
         #region Methods
@@ -41,12 +42,12 @@ namespace ConnectFourXNA
         // Initialise method creates 42 cells
         public void Initialise()
         {
-            for (int i = 0; i < columnNumber; i++)
+            for (int i = 0; i < _columnNumber; i++)
             {
-                for (int j = 0; j < rowNumber; j++)
+                for (int j = 0; j < _rowNumber; j++)
                 {
-                    int x = tileWidth * i;
-                    int y = tileHeight * j;
+                    int x = _tileWidth * i;
+                    int y = _tileHeight * j;
                     cells[i, j] = new Cell(x, y);
                 }
             }
@@ -61,9 +62,9 @@ namespace ConnectFourXNA
         // ---> TO DO: Create a system to assign right sprite for diffrent state of cell using "fileName" variable instead of "empty" string. <---
         public void LoadContent(ContentManager contentManager)
         {
-            for (int i = 0; i < columnNumber; i++)
+            for (int i = 0; i < _columnNumber; i++)
             {
-                for (int j = 0; j < rowNumber; j++)
+                for (int j = 0; j < _rowNumber; j++)
                 {
                     cells[i, j].LoadContent("black", contentManager);
                 }
@@ -73,9 +74,9 @@ namespace ConnectFourXNA
         // Draw method draws 42 cells using cell.Draw method. 
         public void Draw(SpriteBatch spriteBatch)
         {
-            for (int i = 0; i < columnNumber; i++)
+            for (int i = 0; i < _columnNumber; i++)
             {
-                for (int j = 0; j < rowNumber; j++)
+                for (int j = 0; j < _rowNumber; j++)
                 {
                     cells[i, j].Draw(spriteBatch);
                 }
