@@ -22,9 +22,9 @@ namespace ConnectFourXNA
         private Rectangle _drawRectangle;
         private Texture2D _tile;
 
-        public static string EmptyTextureFilePath = "empty";
-        public static string BlackTextureFilePath = "black";
-        public static string RedTextureFilePath = "red";
+        private static string EmptyTextureFilePath = "empty";
+        private static string BlackTextureFilePath = "black";
+        private static string RedTextureFilePath = "red";
 
         private static Texture2D _emptyTexture;
         private static Texture2D _blackTexture;
