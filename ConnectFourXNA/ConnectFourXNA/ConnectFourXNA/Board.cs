@@ -61,6 +61,9 @@ namespace ConnectFourXNA
         // LoadContent method assignes a sprite for every cell using cell.LoadContent method.
         public void LoadContent(ContentManager contentManager)
         {
+            // Load cell textures
+            Cell.LoadContent(contentManager);
+
             for (int i = 0; i < _columnNumber; i++)
             {
                 for (int j = 0; j < _rowNumber; j++)
