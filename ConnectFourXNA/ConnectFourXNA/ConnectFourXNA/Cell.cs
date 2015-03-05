@@ -19,8 +19,8 @@ namespace ConnectFourXNA
     {
         #region Fields
 
-        private Rectangle _drawRectangle;
         private CellImage _cellImage;
+        private int _rectangleX, _rectangleY;
 
         private static CellImage _emptyCell = new CellImage("empty");
         private static CellImage _blackCell = new CellImage("black");
@@ -30,18 +30,13 @@ namespace ConnectFourXNA
 
         public Cell(int rectangleX, int rectangleY)
         {
-            _drawRectangle = new Rectangle(rectangleX, rectangleY, 0, 0);
+            _rectangleX = rectangleX;
+            _rectangleY = rectangleY;
+
             _cellImage = _emptyCell;
         }
 
         #region Methods
-
-        // LoadContent method assigns a sprite to a cell.
-        public void LoadContent()
-        {
-            _drawRectangle.Width = _cellImage.Width;
-            _drawRectangle.Height = _cellImage.Height;
-        }
 
         /// <summary>
         /// Loads all cell textures.
@@ -62,7 +57,7 @@ namespace ConnectFourXNA
         // Draw method draws a cell.
         public void Draw(SpriteBatch spriteBatch)
         {
-            _cellImage.Draw(spriteBatch, _drawRectangle);
+            _cellImage.Draw(spriteBatch, _rectangleX, _rectangleY);
         }
 
         #endregion
@@ -87,25 +82,12 @@ namespace ConnectFourXNA
             _texture = contentManager.Load<Texture2D>(_filePath);
         }
 
-        public int Width
+        public void Draw(SpriteBatch spriteBatch, int rectangleX, int rectangleY)
         {
-            get
-            {
-                return _texture.Width;
-            }
-        }
-
-        public int Height
-        {
-            get
-            {
-                return _texture.Height;
-            }
-        }
-
-        public void Draw(SpriteBatch spriteBatch, Rectangle drawRectangle)
-        {
-            spriteBatch.Draw(_texture, drawRectangle, Color.White);
+            spriteBatch.Draw(
+                _texture, 
+                new Rectangle(rectangleX, rectangleY, _texture.Width, _texture.Height), 
+                Color.White);
         }
     }
 }

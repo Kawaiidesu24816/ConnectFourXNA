@@ -63,14 +63,6 @@ namespace ConnectFourXNA
         {
             // Load cell textures
             Cell.LoadContent(contentManager);
-
-            for (int i = 0; i < _columnNumber; i++)
-            {
-                for (int j = 0; j < _rowNumber; j++)
-                {
-                    cells[i, j].LoadContent();
-                }
-            }
         }
 
         // Draw method draws 42 cells using cell.Draw method. 
