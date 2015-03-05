@@ -64,6 +64,7 @@ namespace ConnectFourXNA
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Load pictures for cells
+            Cell.LoadContent(Content);
             board.LoadContent(Content);
 
 

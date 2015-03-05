@@ -26,6 +26,10 @@ namespace ConnectFourXNA
         public static string BlackTextureFilePath = "black";
         public static string RedTextureFilePath = "red";
 
+        private static Texture2D _emptyTexture;
+        private static Texture2D _blackTexture;
+        private static Texture2D _redTexture;
+
         #endregion
 
         public Cell(int rectangleX, int rectangleY)
@@ -36,12 +40,19 @@ namespace ConnectFourXNA
         #region Methods
 
         // LoadContent method assigns a sprite to a cell.
-        public void LoadContent(string fileName, ContentManager contentManager)
+        public void LoadContent()
         {
             
-            _tile = contentManager.Load<Texture2D>(fileName);
+            _tile = _blackTexture;
             _drawRectangle.Width = _tile.Width;
             _drawRectangle.Height = _tile.Height;
+        }
+
+        public static void LoadContent(ContentManager contentManager)
+        {
+            _emptyTexture = contentManager.Load<Texture2D>(EmptyTextureFilePath);
+            _blackTexture = contentManager.Load<Texture2D>(BlackTextureFilePath);
+            _redTexture = contentManager.Load<Texture2D>(RedTextureFilePath);
         }
 
         public void Update()

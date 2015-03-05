@@ -65,7 +65,7 @@ namespace ConnectFourXNA
             {
                 for (int j = 0; j < _rowNumber; j++)
                 {
-                    cells[i, j].LoadContent(Cell.BlackTextureFilePath, contentManager);
+                    cells[i, j].LoadContent();
                 }
             }
         }
