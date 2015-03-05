@@ -22,10 +22,6 @@ namespace ConnectFourXNA
         private CellImage _cellImage;
         private int _rectangleX, _rectangleY;
 
-        private static CellImage _emptyCell = new CellImage("empty");
-        private static CellImage _blackCell = new CellImage("black");
-        private static CellImage _redCell = new CellImage("red");
-
         #endregion
 
         public Cell(int rectangleX, int rectangleY)
@@ -33,21 +29,10 @@ namespace ConnectFourXNA
             _rectangleX = rectangleX;
             _rectangleY = rectangleY;
 
-            _cellImage = _emptyCell;
+            _cellImage = CellImage.EmptyCell;
         }
 
         #region Methods
-
-        /// <summary>
-        /// Loads all cell textures.
-        /// </summary>
-        /// <param name="contentManager">Manager to load textures with.</param>
-        public static void LoadContent(ContentManager contentManager)
-        {
-            _emptyCell.LoadContent(contentManager);
-            _blackCell.LoadContent(contentManager);
-            _redCell.LoadContent(contentManager);
-        }
 
         public void Update()
         {
@@ -65,29 +50,58 @@ namespace ConnectFourXNA
     }
 
     /// <summary>
-    /// 
+    /// Holds and draws a single cell texture.
     /// </summary>
     class CellImage
     {
+        #region public
+
+        public static CellImage EmptyCell = new CellImage("empty");
+        public static CellImage BlackCell = new CellImage("black");
+        public static CellImage RedCell = new CellImage("red");
+
+        /// <summary>
+        /// Loads all cell textures.
+        /// </summary>
+        /// <param name="contentManager">Manager to load textures with.</param>
+        public static void LoadContent(ContentManager contentManager)
+        {
+            EmptyCell.LoadTexture(contentManager);
+            BlackCell.LoadTexture(contentManager);
+            RedCell.LoadTexture(contentManager);
+        }
+
+        /// <summary>
+        /// Draws cell at given coordinates.
+        /// </summary>
+        /// <param name="spriteBatch">SpriteBatch to draw in.</param>
+        /// <param name="rectangleX">X coordinate.</param>
+        /// <param name="rectangleY">Y coordinate.</param>
+        public void Draw(SpriteBatch spriteBatch, int rectangleX, int rectangleY)
+        {
+            spriteBatch.Draw(
+                _texture,
+                new Rectangle(rectangleX, rectangleY, _texture.Width, _texture.Height),
+                Color.White);
+        }
+
+        #endregion
+
+        #region private
+        
         private string _filePath;
         private Texture2D _texture;
 
-        public CellImage(string filePath)
+        private CellImage(string filePath)
         {
             _filePath = filePath;
         }
 
-        public void LoadContent(ContentManager contentManager)
+        private void LoadTexture(ContentManager contentManager)
         {
             _texture = contentManager.Load<Texture2D>(_filePath);
         }
 
-        public void Draw(SpriteBatch spriteBatch, int rectangleX, int rectangleY)
-        {
-            spriteBatch.Draw(
-                _texture, 
-                new Rectangle(rectangleX, rectangleY, _texture.Width, _texture.Height), 
-                Color.White);
-        }
+        #endregion
     }
 }
