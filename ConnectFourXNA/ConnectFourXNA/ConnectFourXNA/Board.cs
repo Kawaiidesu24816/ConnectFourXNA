@@ -59,14 +59,13 @@ namespace ConnectFourXNA
         }
 
         // LoadContent method assignes a sprite for every cell using cell.LoadContent method.
-        // ---> TO DO: Create a system to assign right sprite for diffrent state of cell using "fileName" variable instead of "empty" string. <---
         public void LoadContent(ContentManager contentManager)
         {
             for (int i = 0; i < _columnNumber; i++)
             {
                 for (int j = 0; j < _rowNumber; j++)
                 {
-                    cells[i, j].LoadContent("black", contentManager);
+                    cells[i, j].LoadContent(Cell.BlackTextureFilePath, contentManager);
                 }
             }
         }

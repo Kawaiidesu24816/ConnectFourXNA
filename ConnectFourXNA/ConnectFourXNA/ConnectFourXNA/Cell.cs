@@ -22,6 +22,10 @@ namespace ConnectFourXNA
         private Rectangle _drawRectangle;
         private Texture2D _tile;
 
+        public static string EmptyTextureFilePath = "empty";
+        public static string BlackTextureFilePath = "black";
+        public static string RedTextureFilePath = "red";
+
         #endregion
 
         public Cell(int rectangleX, int rectangleY)
