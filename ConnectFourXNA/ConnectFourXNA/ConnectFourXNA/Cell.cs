@@ -56,9 +56,27 @@ namespace ConnectFourXNA
     {
         #region public
 
-        public static CellImage EmptyCell = new CellImage("empty");
-        public static CellImage BlackCell = new CellImage("black");
-        public static CellImage RedCell = new CellImage("red");
+        public static CellImage EmptyCell
+        {
+            get
+            {
+                return _emptyCell;
+            }
+        }
+        public static CellImage BlackCell
+        {
+            get
+            {
+                return _blackCell;
+            }
+        }
+        public static CellImage RedCell
+        {
+            get
+            {
+                return _redCell;
+            }
+        }
 
         /// <summary>
         /// Loads all cell textures.
@@ -91,6 +109,10 @@ namespace ConnectFourXNA
         
         private string _filePath;
         private Texture2D _texture;
+
+        private static CellImage _emptyCell = new CellImage("empty");
+        private static CellImage _blackCell = new CellImage("black");
+        private static CellImage _redCell = new CellImage("red");
 
         private CellImage(string filePath)
         {
