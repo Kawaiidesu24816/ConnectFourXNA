@@ -20,21 +20,18 @@ namespace ConnectFourXNA
         #region Fields
 
         private Rectangle _drawRectangle;
-        private Texture2D _tile;
+        private CellImage _cellImage;
 
-        private static string EmptyTextureFilePath = "empty";
-        private static string BlackTextureFilePath = "black";
-        private static string RedTextureFilePath = "red";
-
-        private static Texture2D _emptyTexture;
-        private static Texture2D _blackTexture;
-        private static Texture2D _redTexture;
+        private static CellImage _emptyCell = new CellImage("empty");
+        private static CellImage _blackCell = new CellImage("black");
+        private static CellImage _redCell = new CellImage("red");
 
         #endregion
 
         public Cell(int rectangleX, int rectangleY)
         {
             _drawRectangle = new Rectangle(rectangleX, rectangleY, 0, 0);
+            _cellImage = _emptyCell;
         }
 
         #region Methods
@@ -42,10 +39,8 @@ namespace ConnectFourXNA
         // LoadContent method assigns a sprite to a cell.
         public void LoadContent()
         {
-            
-            _tile = _emptyTexture;
-            _drawRectangle.Width = _tile.Width;
-            _drawRectangle.Height = _tile.Height;
+            _drawRectangle.Width = _cellImage.Width;
+            _drawRectangle.Height = _cellImage.Height;
         }
 
         /// <summary>
@@ -54,9 +49,9 @@ namespace ConnectFourXNA
         /// <param name="contentManager">Manager to load textures with.</param>
         public static void LoadContent(ContentManager contentManager)
         {
-            _emptyTexture = contentManager.Load<Texture2D>(EmptyTextureFilePath);
-            _blackTexture = contentManager.Load<Texture2D>(BlackTextureFilePath);
-            _redTexture = contentManager.Load<Texture2D>(RedTextureFilePath);
+            _emptyCell.LoadContent(contentManager);
+            _blackCell.LoadContent(contentManager);
+            _redCell.LoadContent(contentManager);
         }
 
         public void Update()
@@ -67,10 +62,50 @@ namespace ConnectFourXNA
         // Draw method draws a cell.
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_tile, _drawRectangle, Color.White);
+            _cellImage.Draw(spriteBatch, _drawRectangle);
         }
 
         #endregion
 
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    class CellImage
+    {
+        private string _filePath;
+        private Texture2D _texture;
+
+        public CellImage(string filePath)
+        {
+            _filePath = filePath;
+        }
+
+        public void LoadContent(ContentManager contentManager)
+        {
+            _texture = contentManager.Load<Texture2D>(_filePath);
+        }
+
+        public int Width
+        {
+            get
+            {
+                return _texture.Width;
+            }
+        }
+
+        public int Height
+        {
+            get
+            {
+                return _texture.Height;
+            }
+        }
+
+        public void Draw(SpriteBatch spriteBatch, Rectangle drawRectangle)
+        {
+            spriteBatch.Draw(_texture, drawRectangle, Color.White);
+        }
     }
 }
