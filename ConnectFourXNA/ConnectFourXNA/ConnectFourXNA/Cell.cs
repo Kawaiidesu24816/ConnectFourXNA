@@ -43,7 +43,7 @@ namespace ConnectFourXNA
         public void LoadContent()
         {
             
-            _tile = _blackTexture;
+            _tile = _emptyTexture;
             _drawRectangle.Width = _tile.Width;
             _drawRectangle.Height = _tile.Height;
         }
