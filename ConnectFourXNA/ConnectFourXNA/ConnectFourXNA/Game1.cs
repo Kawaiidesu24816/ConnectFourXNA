@@ -63,10 +63,11 @@ namespace ConnectFourXNA
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // Load pictures for cells
+            // Load cell textures
             Cell.LoadContent(Content);
-            board.LoadContent(Content);
 
+            // Load cells
+            board.LoadContent(Content);
 
         }
 

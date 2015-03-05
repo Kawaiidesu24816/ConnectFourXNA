@@ -48,6 +48,10 @@ namespace ConnectFourXNA
             _drawRectangle.Height = _tile.Height;
         }
 
+        /// <summary>
+        /// Loads all cell textures.
+        /// </summary>
+        /// <param name="contentManager">Manager to load textures with.</param>
         public static void LoadContent(ContentManager contentManager)
         {
             _emptyTexture = contentManager.Load<Texture2D>(EmptyTextureFilePath);
