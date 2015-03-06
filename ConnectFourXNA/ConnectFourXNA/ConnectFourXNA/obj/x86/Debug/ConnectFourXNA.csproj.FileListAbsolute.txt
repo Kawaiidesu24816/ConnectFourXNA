@@ -1,0 +1,9 @@
+C:\Users\Lumino\Desktop\Рабочий\Код и прочее\ConnectFourXNA_working_tree\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\bin\x86\Debug\Content\Sprites\black.xnb
+C:\Users\Lumino\Desktop\Рабочий\Код и прочее\ConnectFourXNA_working_tree\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\bin\x86\Debug\Content\Sprites\empty.xnb
+C:\Users\Lumino\Desktop\Рабочий\Код и прочее\ConnectFourXNA_working_tree\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\bin\x86\Debug\Content\Sprites\red.xnb
+C:\Users\Lumino\Desktop\Рабочий\Код и прочее\ConnectFourXNA_working_tree\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\bin\x86\Debug\Content\Sprites\nullTexture.xnb
+C:\Users\Lumino\Desktop\Рабочий\Код и прочее\ConnectFourXNA_working_tree\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\bin\x86\Debug\ConnectFourXNA.exe
+C:\Users\Lumino\Desktop\Рабочий\Код и прочее\ConnectFourXNA_working_tree\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\bin\x86\Debug\ConnectFourXNA.pdb
+C:\Users\Lumino\Desktop\Рабочий\Код и прочее\ConnectFourXNA_working_tree\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Lumino\Desktop\Рабочий\Код и прочее\ConnectFourXNA_working_tree\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\obj\x86\Debug\ConnectFourXNA.exe
+C:\Users\Lumino\Desktop\Рабочий\Код и прочее\ConnectFourXNA_working_tree\ConnectFourXNA\ConnectFourXNA\ConnectFourXNA\obj\x86\Debug\ConnectFourXNA.pdb

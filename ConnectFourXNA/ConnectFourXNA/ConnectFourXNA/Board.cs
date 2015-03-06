@@ -15,7 +15,7 @@ namespace ConnectFourXNA
     /// <summary>
     /// Board class controls (load, draws, update etc.) all cells using Cell class.
     /// </summary>
-    class Board
+    class Board 
     {
         #region Fields 
 
@@ -27,7 +27,7 @@ namespace ConnectFourXNA
 
         #endregion
 
-        public Board(int columnNumber, int rowNumber, int tileWidth, int tileHeight)
+        public Board(Game1 game, int columnNumber, int rowNumber, int tileWidth, int tileHeight)
         {
             _columnNumber = columnNumber;
             _rowNumber = rowNumber;
@@ -36,46 +36,30 @@ namespace ConnectFourXNA
 
             cells = new Cell[_columnNumber, _rowNumber];
 
-        }
-        #region Methods
-
-        // Initialise method creates 42 cells
-        public void Initialise()
-        {
             for (int i = 0; i < _columnNumber; i++)
             {
                 for (int j = 0; j < _rowNumber; j++)
                 {
-                    int x = _tileWidth * i;
-                    int y = _tileHeight * j;
-                    cells[i, j] = new Cell(x, y);
+                    float x = _tileWidth * i + tileWidth / 2f;
+                    float y = _tileHeight * j + tileWidth / 2f;
+                    cells[i, j] = new Cell(game, new Vector2(x, y));
                 }
             }
-        }
 
-        public void Update()
+        }
+        #region Methods
+        /* Инициализация не вызывает после метода Initialize в Game, поэтому мы переносим всё в конструктор
+        // Initialize method creates 42 cells
+        public void Initialize()
+        {
+            
+        }
+        */
+        public void Update(GameTime gameTime)
         {
             // Will update the every cell to change its state.
         }
 
-        // LoadContent method assignes a sprite for every cell using cell.LoadContent method.
-        public void LoadContent(ContentManager contentManager)
-        {
-            // Load cell textures
-            CellImage.LoadContent(contentManager);
-        }
-
-        // Draw method draws 42 cells using cell.Draw method. 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            for (int i = 0; i < _columnNumber; i++)
-            {
-                for (int j = 0; j < _rowNumber; j++)
-                {
-                    cells[i, j].Draw(spriteBatch);
-                }
-            }
-        }
         #endregion
     }
 }

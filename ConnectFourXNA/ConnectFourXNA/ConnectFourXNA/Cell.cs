@@ -12,39 +12,60 @@ using Microsoft.Xna.Framework.Media;
 
 namespace ConnectFourXNA
 {
+    enum CellState { Empty, Black, Red }
     /// <summary>
     /// Cell class create a cell  
     /// </summary>
-    class Cell
+    class Cell : DrawableGameComponent
     {
         #region Fields
 
-        private CellImage _cellImage;
-        private int _rectangleX, _rectangleY;
+        private CellState state;
+        private Sprite sprite;
+        private SpriteEffects spriteEffects;
+        private Vector2 position;
+
+        
+        public Sprite Sprite { get { return sprite; } }
+        public SpriteEffects SpriteEffects { get { return spriteEffects; } }
+        public CellState State
+        {
+            get { return state; }
+            set
+            {
+                state = value;
+                ResourceManager resources = (ResourceManager)Game.Services.GetService(typeof(ResourceManager));
+                string test = state.ToString();
+                sprite = resources.GetSprite(state.ToString());
+            }
+        }
 
         #endregion
 
-        public Cell(int rectangleX, int rectangleY)
+        public Cell(Game1 game, Vector2 position)
+            :base(game)
         {
-            _rectangleX = rectangleX;
-            _rectangleY = rectangleY;
+            this.position = position;
 
-            _cellImage = CellImage.EmptyCell;
+            State = CellState.Empty;
+            spriteEffects = new SpriteEffects();
+
+            game.Components.Add(this);
         }
 
         #region Methods
 
-        public void Update()
+        public override void Update(GameTime gameTime)
         {
             //will update the cell to change its state.
         }
 
         // Draw method draws a cell.
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(GameTime gameTime)
         {
-            _cellImage.Draw(spriteBatch, _rectangleX, _rectangleY);
+            SpriteBatch spriteBatch = (SpriteBatch)Game.Services.GetService(typeof(SpriteBatch));
+            Sprite.Draw(spriteBatch, position, spriteEffects);
         }
-
         #endregion
 
     }

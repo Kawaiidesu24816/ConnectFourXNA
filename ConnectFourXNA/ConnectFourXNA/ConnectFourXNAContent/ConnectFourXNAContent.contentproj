@@ -42,18 +42,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="black.png">
-      <Name>black</Name>
+    <Compile Include="Sprites\Black.png">
+      <Name>Black</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="empty.png">
-      <Name>empty</Name>
+    <Compile Include="Sprites\Empty.png">
+      <Name>Empty</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="red.png">
-      <Name>red</Name>
+    <Compile Include="Sprites\Red.png">
+      <Name>Red</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\nullTexture.png">
+      <Name>nullTexture</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
